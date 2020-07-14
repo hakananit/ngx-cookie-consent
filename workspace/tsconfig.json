@@ -12,6 +12,15 @@
     },
     {
       "path": "./projects/ngx-cookie-consent/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/playground/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/playground/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/playground/e2e/tsconfig.json"
     }
 ]
 }
