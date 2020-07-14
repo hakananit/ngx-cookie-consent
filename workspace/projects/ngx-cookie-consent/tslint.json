@@ -4,13 +4,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "lib",
+      "ngx-cookie-consent",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "lib",
+      "ngx-cookie-consent",
       "kebab-case"
     ]
   }

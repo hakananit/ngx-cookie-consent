@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'lib-ngx-cookie-consent',
+  selector: 'ngx-cookie-consent',
   template: `
     <p>
       ngx-cookie-consent works!
