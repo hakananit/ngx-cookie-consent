@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { NgxCookieConsentComponent } from './ngx-cookie-consent.component';
 import { CookieConsentBodyDirective } from './cookie-consent-body.directive';
 import { CookieConsentActionDirective } from './cookie-consent-action.directive';
@@ -13,7 +14,7 @@ import { CookieConsentOptionsDirective } from './cookie-consent-options.directiv
     CookieConsentFooterDirective,
     CookieConsentOptionsDirective,
   ],
-  imports: [],
+  imports: [CommonModule],
   exports: [
     NgxCookieConsentComponent,
     CookieConsentBodyDirective,

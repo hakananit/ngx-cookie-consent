@@ -37,4 +37,8 @@ export class NgxCookieConsentComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onClose(): void {
+    this.closedEvent.emit();
+  }
+
 }

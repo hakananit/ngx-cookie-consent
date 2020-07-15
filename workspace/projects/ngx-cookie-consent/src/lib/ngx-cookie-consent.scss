@@ -1,7 +1,7 @@
 :host {
   display: grid;
   grid-row-gap: 10px;
-  grid-template-rows: 25px 100px auto auto 50px;
+  grid-template-rows: 25px 100px auto auto 25px;
   grid-template-columns: 25% 25% 25% 25%;
   grid-template-areas:
     ". title title ."
@@ -9,30 +9,54 @@
     ". options options ."
     ". . action ."
     ". footer footer .";
-  max-height: 300px;
   align-items: center;
+  border: 2px aliceblue solid;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 .ngx-cookie-consent__title {
   grid-area: title;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+  padding: 5px 0px;
+  button {
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    border: 2px solid #e7e7e7;
+    &:hover {
+      background-color: gray;
+    }
+  }
+  span {
+    font-weight: bold;
+  }
 }
 
 ::ng-deep {
   .ngx-cookie-consent__body {
     grid-area: body;
+    height: 100px;
+    overflow-y: scroll;
   }
 
   .ngx-cookie-consent__options {
     grid-area: options;
+    display: flex;
   }
 
   .ngx-cookie-consent__action {
     grid-area: action;
-    justify-self: end;
+    display: flex;
+    justify-content: space-evenly;
   }
 
   .ngx-cookie-consent__footer {
     grid-area: footer;
-    justify-self: space-around;
+    display: flex;
+    justify-content: space-around;
   }
 }

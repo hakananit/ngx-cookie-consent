@@ -1,4 +1,5 @@
 <span class="ngx-cookie-consent__title">
-  <h4>{{title}}</h4>
+  <span>{{title}}</span>
+  <button type="button" (click)="onClose()" *ngIf="closeable">X</button>
 </span>
 <ng-content></ng-content>
