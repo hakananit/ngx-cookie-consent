@@ -46,11 +46,14 @@
   .ngx-cookie-consent__options {
     grid-area: options;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
   }
 
   .ngx-cookie-consent__action {
     grid-area: action;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
   }
 
