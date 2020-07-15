@@ -5,11 +5,21 @@ import { CookieConsentActionDirective } from './cookie-consent-action.directive'
 import { CookieConsentFooterDirective } from './cookie-consent-footer.directive';
 import { CookieConsentOptionsDirective } from './cookie-consent-options.directive';
 
-
 @NgModule({
-  declarations: [NgxCookieConsentComponent, CookieConsentBodyDirective, CookieConsentActionDirective, CookieConsentFooterDirective, CookieConsentOptionsDirective],
-  imports: [
+  declarations: [
+    NgxCookieConsentComponent,
+    CookieConsentBodyDirective,
+    CookieConsentActionDirective,
+    CookieConsentFooterDirective,
+    CookieConsentOptionsDirective,
   ],
-  exports: [NgxCookieConsentComponent, CookieConsentBodyDirective, CookieConsentActionDirective, CookieConsentFooterDirective, CookieConsentOptionsDirective]
+  imports: [],
+  exports: [
+    NgxCookieConsentComponent,
+    CookieConsentBodyDirective,
+    CookieConsentActionDirective,
+    CookieConsentFooterDirective,
+    CookieConsentOptionsDirective,
+  ],
 })
-export class NgxCookieConsentModule { }
+export class NgxCookieConsentModule {}
