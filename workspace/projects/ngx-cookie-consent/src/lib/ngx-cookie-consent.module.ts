@@ -10,6 +10,6 @@ import { NgxCookieConsentOptionsComponent } from './ngx-cookie-consent-options/n
   declarations: [NgxCookieConsentComponent, NgxCookieConsentBodyComponent, NgxCookieConsentActionsComponent, NgxCookieConsentOptionsComponent],
   imports: [
   ],
-  exports: [NgxCookieConsentComponent]
+  exports: [NgxCookieConsentComponent, NgxCookieConsentBodyComponent]
 })
 export class NgxCookieConsentModule { }
