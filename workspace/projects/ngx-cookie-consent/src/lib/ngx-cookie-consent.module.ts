@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { NgxCookieConsentComponent } from './ngx-cookie-consent.component';
-import { NgxCookieConsentBodyComponent } from './ngx-cookie-consent-body/ngx-cookie-consent-body.component';
-import { NgxCookieConsentActionsComponent } from './ngx-cookie-consent-actions/ngx-cookie-consent-actions.component';
-import { NgxCookieConsentOptionsComponent } from './ngx-cookie-consent-options/ngx-cookie-consent-options.component';
-
+import { CookieConsentBodyDirective } from './cookie-consent-body.directive';
+import { CookieConsentActionDirective } from './cookie-consent-action.directive';
+import { CookieConsentFooterDirective } from './cookie-consent-footer.directive';
+import { CookieConsentOptionsDirective } from './cookie-consent-options.directive';
 
 
 @NgModule({
-  declarations: [NgxCookieConsentComponent, NgxCookieConsentBodyComponent, NgxCookieConsentActionsComponent, NgxCookieConsentOptionsComponent],
+  declarations: [NgxCookieConsentComponent, CookieConsentBodyDirective, CookieConsentActionDirective, CookieConsentFooterDirective, CookieConsentOptionsDirective],
   imports: [
   ],
-  exports: [NgxCookieConsentComponent, NgxCookieConsentBodyComponent]
+  exports: [NgxCookieConsentComponent, CookieConsentBodyDirective, CookieConsentActionDirective, CookieConsentFooterDirective, CookieConsentOptionsDirective]
 })
 export class NgxCookieConsentModule { }

@@ -1,3 +1,24 @@
-<ngx-cookie-consent>
-  <ngx-cookie-consent-body></ngx-cookie-consent-body>
+<ngx-cookie-consent closeable="false" (closedEvent)="cookieConsetClosed($event)">
+  <div ngxCookieConsentBody>
+    For purposes of quality assurance, technical optimization, user friendliness, usage analysis and expansion of the
+    range of functions, we use so-called cookies on our websites. In the details, you can choose which categories of
+    cookies you want to allow revocably.
+  </div>
+  <div ngxCookieConsentOptions>
+    <input type="checkbox" id="necessary" name="necessary" value="necessary">
+    <label for="necessary">Necessary</label><br>
+    <input type="checkbox" id="statistics" name="statistics" value="statistics">
+    <label for="statistics">Statistics</label><br>
+    <input type="checkbox" id="function" name="function" value="function">
+    <label for="function">Function</label><br>
+  </div>
+  <div ngxCookieConsentAction>
+    <button type="button">Confirm selection</button>
+    <button type="button">Select all</button>
+  </div>
+  <div ngxCookieConsentFooter>
+    <a href="">Privacy policy</a>
+    <a href="">Imprint</a>
+    <a href="">About us</a>
+  </div>
 </ngx-cookie-consent>

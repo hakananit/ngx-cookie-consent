@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'playground';
+
+  cookieConsetClosed($event): void {
+    console.log('cookieConsetClosed');
+  }
 }

@@ -7,7 +7,7 @@
       "projectType": "library",
       "root": "projects/ngx-cookie-consent",
       "sourceRoot": "projects/ngx-cookie-consent/src",
-      "prefix": "ngx-cookie-consent",
+      "prefix": "ngx",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
