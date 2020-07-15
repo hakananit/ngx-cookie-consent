@@ -1,32 +1,38 @@
 :host {
   display: grid;
   grid-row-gap: 10px;
-  grid-template-rows: [body] 200px [options] auto [action] auto [footer] 100px;
-  grid-template-columns: auto auto auto auto;
+  grid-template-rows: 25px 100px auto auto 50px;
+  grid-template-columns: 25% 25% 25% 25%;
   grid-template-areas:
-    ". . body body ."
-    ". . options options ."
-    ". . action action . "
-    "footer footer footer footer ";
+    ". title title ."
+    ". body body ."
+    ". options options ."
+    ". . action ."
+    ". footer footer .";
   max-height: 300px;
   align-items: center;
 }
 
-::ng-deep .ngx-cookie-consent__body {
-  background-color: red;
-  grid-area: body;
+.ngx-cookie-consent__title {
+  grid-area: title;
 }
 
-::ng-deep .ngx-cookie-consent__options {
-  grid-area: options;
-}
+::ng-deep {
+  .ngx-cookie-consent__body {
+    grid-area: body;
+  }
 
-::ng-deep .ngx-cookie-consent__action {
-  grid-area: action;
-  justify-self: end;
-}
+  .ngx-cookie-consent__options {
+    grid-area: options;
+  }
 
-::ng-deep .ngx-cookie-consent__footer {
-  grid-area: footer;
-  justify-self: space-around;
+  .ngx-cookie-consent__action {
+    grid-area: action;
+    justify-self: end;
+  }
+
+  .ngx-cookie-consent__footer {
+    grid-area: footer;
+    justify-self: space-around;
+  }
 }
