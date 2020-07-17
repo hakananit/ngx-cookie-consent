@@ -9,5 +9,6 @@ export * from './lib/cookie-consent-body.directive';
 export * from './lib/cookie-consent-action.directive';
 export * from './lib/cookie-consent-footer.directive';
 export * from './lib/cookie-consent-options.directive';
+export * from './lib/cookie-consent-content.directive';
 
 export * from './lib/cookie-consent.service';

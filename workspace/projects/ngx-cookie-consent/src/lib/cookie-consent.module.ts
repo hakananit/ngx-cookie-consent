@@ -7,6 +7,7 @@ import { CookieConsentFooterDirective } from './cookie-consent-footer.directive'
 import { CookieConsentOptionsDirective } from './cookie-consent-options.directive';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { PortalModule } from '@angular/cdk/portal';
+import { CookieConsentContentDirective } from './cookie-consent-content.directive';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { PortalModule } from '@angular/cdk/portal';
     CookieConsentBodyDirective,
     CookieConsentActionDirective,
     CookieConsentFooterDirective,
-    CookieConsentOptionsDirective],
+    CookieConsentOptionsDirective,
+    CookieConsentContentDirective],
   imports: [CommonModule, OverlayModule, PortalModule],
   exports: [
     PortalModule,
@@ -23,6 +25,7 @@ import { PortalModule } from '@angular/cdk/portal';
     CookieConsentBodyDirective,
     CookieConsentActionDirective,
     CookieConsentFooterDirective,
-    CookieConsentOptionsDirective],
+    CookieConsentOptionsDirective,
+    CookieConsentContentDirective],
 })
 export class NgxCookieConsentModule { }
