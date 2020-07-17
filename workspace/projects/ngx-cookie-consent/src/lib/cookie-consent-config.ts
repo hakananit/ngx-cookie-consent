@@ -1,4 +1,9 @@
+export type CookieConsentPosition = 'bottom' | 'top' | 'center';
+
 export interface CookieConsentConfig {
     title?: string;
-    closeable?: boolean;
+    isCloseable?: boolean;
+    hasfocusTrap?: boolean;
+    hasBackdrop?: boolean;
+    position?: CookieConsentPosition;
 }

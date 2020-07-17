@@ -23,10 +23,12 @@ export class CookieConsentService {
     });
     const portal = new ComponentPortal(CookieConsentContainerComponent);
     const ref = this._overlayRef.attach(portal);
-    ref.instance.title = config?.title;
-    ref.instance.closeable = config?.closeable;
-
+    this._setCookieConfig(ref, config);
     return ref.instance.attachComponentPortal(new ComponentPortal(component));
+  }
+
+  private _setCookieConfig(ref: any, config: CookieConsentConfig) {
+    ref.instance.config = config;
   }
 
   hide(): void {

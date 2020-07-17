@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy, ViewChild, ComponentRef, Input, ChangeDetectorRef } from '@angular/core';
 import { CdkPortalOutlet, ComponentPortal } from '@angular/cdk/portal';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
+import { CookieConsentConfig } from './cookie-consent-config';
 
 @Component({
   selector: 'ngx-cookie-consent',
@@ -9,6 +10,15 @@ import { coerceBooleanProperty } from '@angular/cdk/coercion';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CookieConsentContainerComponent {
+
+  private _config;
+  @Input()
+  set config(value: CookieConsentConfig) {
+    this._config = value;
+  }
+  get config() {
+    return this._config;
+  }
 
   private _title: string;
   @Input()
