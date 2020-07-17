@@ -7,13 +7,17 @@ import { CookieConsentExampleComponent } from './cookie-consent-example/cookie-c
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent {
 
   private _cookieContentRef;
 
   constructor(private _ccs: CookieConsentService) { }
 
-  ngAfterViewInit() {
+  showConsent() {
     this._cookieContentRef = this._ccs.show(CookieConsentExampleComponent);
+  }
+
+  hideConsent() {
+    this._ccs.hide();
   }
 }
