@@ -23,7 +23,7 @@ export class CookieConsentService {
     const overlayConfig: OverlayConfig = {
       disposeOnNavigation: false,
       positionStrategy: position || this._overlay.position().global().bottom(),
-      hasBackdrop: config?.hasBackdrop || true
+      hasBackdrop: config.hasBackdrop
     };
     return this._overlay.create(overlayConfig);
   }

@@ -18,7 +18,7 @@ export class AppComponent {
       {
         title: 'hello',
         isCloseable: true,
-        hasBackdrop: false,
+        hasBackdrop: true,
         position: 'top'
       });
   }

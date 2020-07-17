@@ -1,5 +1,7 @@
-  <span [class.ngx-cookie-consent__title]="config.title || config.isCloseable">
+<div [class.ngx-cookie-consent__title-wrapper]="config.title || config.isCloseable">
+  <span class="ngx-cookie-consent__title">
     <span *ngIf="config.title">{{config.title}}</span>
     <button *ngIf="config.isCloseable" type="button" (click)="closeConsent()">X</button>
   </span>
-  <ng-template cdkPortalOutlet></ng-template>
+</div>
+<ng-template cdkPortalOutlet></ng-template>

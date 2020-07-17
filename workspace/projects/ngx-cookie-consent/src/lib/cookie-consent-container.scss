@@ -3,25 +3,30 @@
   border-radius: 5px;
   padding: 5px;
 }
-
-.ngx-cookie-consent__title {
-  grid-area: title;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid lightgray;
-  padding: 5px 0px;
-  button {
-    width: 25px;
-    height: 25px;
-    background-color: white;
-    border: 2px solid #e7e7e7;
-    &:hover {
-      background-color: gray;
+.ngx-cookie-consent__title-wrapper {
+  display: inline-grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-areas: ". title title .";
+  width: 100%;
+  .ngx-cookie-consent__title {
+    grid-area: title;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+    padding: 5px 0px;
+    button {
+      width: 25px;
+      height: 25px;
+      background-color: white;
+      border: 2px solid #e7e7e7;
+      &:hover {
+        background-color: gray;
+      }
     }
-  }
-  span {
-    font-weight: bold;
+    span {
+      font-weight: bold;
+    }
   }
 }
 
