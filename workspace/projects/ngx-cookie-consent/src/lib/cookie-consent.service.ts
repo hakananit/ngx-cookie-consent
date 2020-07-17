@@ -1,4 +1,4 @@
-import { Injectable, ComponentRef, EventEmitter } from '@angular/core';
+import { Injectable, ComponentRef } from '@angular/core';
 import { Overlay, OverlayConfig, PositionStrategy } from '@angular/cdk/overlay';
 import { CookieConsentContainerComponent } from './cookie-consent-container.component';
 import { ComponentPortal, ComponentType } from '@angular/cdk/portal';

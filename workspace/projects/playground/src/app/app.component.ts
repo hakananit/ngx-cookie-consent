@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CookieConsentService } from 'ngx-cookie-consent';
 import { CookieConsentExampleComponent } from './cookie-consent-example/cookie-consent-example.component';
 
