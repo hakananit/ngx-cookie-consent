@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, ViewChild, ComponentRef, Input, ChangeDetectorRef } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ViewChild, ComponentRef, Input, ChangeDetectorRef, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { CdkPortalOutlet, ComponentPortal } from '@angular/cdk/portal';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { CookieConsentConfig } from './cookie-consent-config';
@@ -9,7 +9,7 @@ import { CookieConsentConfig } from './cookie-consent-config';
   styleUrls: ['./cookie-consent-container.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CookieConsentContainerComponent {
+export class CookieConsentContainerComponent implements OnDestroy{
 
   private _config;
   @Input()
@@ -40,6 +40,8 @@ export class CookieConsentContainerComponent {
     return this._closeable;
   }
 
+  @Output() statusChanged = new EventEmitter();
+
   @ViewChild(CdkPortalOutlet, { static: true })
   // tslint:disable-next-line: variable-name
   private _portalOutlet: CdkPortalOutlet;
@@ -47,8 +49,17 @@ export class CookieConsentContainerComponent {
   // tslint:disable-next-line: variable-name
   constructor(_cdr: ChangeDetectorRef) { }
 
+  ngOnDestroy(): void {
+    this._portalOutlet = null;
+  }
+
   attachComponentPortal(comportal: ComponentPortal<any>): ComponentRef<any> {
     return this._portalOutlet.attachComponentPortal(comportal);
+  }
+
+  closeConsent() {
+    this._portalOutlet.detach();
+    this.statusChanged.emit();
   }
 
 }
