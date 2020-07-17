@@ -1,3 +1,9 @@
+:host {
+  border: 2px aliceblue solid;
+  border-radius: 5px;
+  padding: 5px;
+}
+
 .ngx-cookie-consent__title {
   grid-area: title;
   display: flex;
@@ -32,9 +38,6 @@
       ". . action ."
       ". footer footer .";
     align-items: center;
-    border: 2px aliceblue solid;
-    border-radius: 5px;
-    padding: 5px;
   }
   .ngx-cookie-consent__body {
     grid-area: body;

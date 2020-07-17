@@ -14,7 +14,7 @@ export class AppComponent {
   constructor(private _ccs: CookieConsentService) { }
 
   showConsent() {
-    this._cookieContentRef = this._ccs.show(CookieConsentExampleComponent);
+    this._cookieContentRef = this._ccs.show(CookieConsentExampleComponent, { title: 'hello', closeable: true });
   }
 
   hideConsent() {

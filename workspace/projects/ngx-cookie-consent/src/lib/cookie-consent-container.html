@@ -1,5 +1,5 @@
-  <span class="ngx-cookie-consent__title">
-    <!-- <span>{{title}}</span> -->
-    <!-- <button type="button" (click)="onClose()">X</button> -->
+  <span [class.ngx-cookie-consent__title]="title || closeable">
+    <span *ngIf="title">{{title}}</span>
+    <button *ngIf="closeable" type="button">X</button>
   </span>
   <ng-template cdkPortalOutlet></ng-template>
