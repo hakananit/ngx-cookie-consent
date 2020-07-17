@@ -5,9 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { NgxCookieConsentModule } from 'ngx-cookie-consent';
+import { CookieConsentExampleComponent } from './cookie-consent-example/cookie-consent-example.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CookieConsentExampleComponent
   ],
   imports: [
     BrowserModule,
