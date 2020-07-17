@@ -17,7 +17,7 @@ export class CookieConsentService {
   show(component: ComponentType<any>): ComponentRef<any> {
      this._overlayRef = this._overlay.create({
        disposeOnNavigation: false,
-       positionStrategy: new GlobalPositionStrategy(),
+       positionStrategy: this._overlay.position().global().bottom(),
        hasBackdrop: true
     });
      const portal = new ComponentPortal(CookieConsentContainerComponent);
