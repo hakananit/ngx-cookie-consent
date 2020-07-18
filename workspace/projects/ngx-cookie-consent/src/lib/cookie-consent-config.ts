@@ -1,9 +1,18 @@
-export type CookieConsentPosition = 'bottom' | 'top' | 'center';
+export type CookieConsentPosition = 'bottom' | 'top';
+
+export interface CookieConfig {
+    cookieName?: string;
+    expireTime?: number;
+    domain?: string;
+    secure?: boolean;
+}
 
 export interface CookieConsentConfig {
     title?: string;
     isCloseable?: boolean;
-    hasfocusTrap?: boolean;
     hasBackdrop?: boolean;
     position?: CookieConsentPosition;
+    hasfocusTrap?: boolean;
+    disappearOnPageScroll?: boolean;
+    cookieConfig?: CookieConfig[];
 }
