@@ -1,7 +1,9 @@
 :host {
-  border: 2px aliceblue solid;
+  border: 1px solid #878a8c;
   border-radius: 5px;
   padding: 5px;
+  box-shadow: 0 2px 15px 0 rgba(0,0,0,.3);
+  background-color: white;
 }
 .ngx-cookie-consent__title-wrapper {
   display: inline-grid;

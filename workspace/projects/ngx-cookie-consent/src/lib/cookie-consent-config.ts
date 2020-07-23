@@ -5,6 +5,7 @@ export interface CookieConfig {
     expireTime?: number;
     domain?: string;
     secure?: boolean;
+    samesite?: boolean;
 }
 
 export interface CookieConsentConfig {
