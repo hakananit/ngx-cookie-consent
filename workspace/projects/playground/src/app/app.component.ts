@@ -14,20 +14,17 @@ export class AppComponent {
   constructor(private _ccs: CookieConsentService) { }
 
   showConsent() {
-    for (let index = 0; index < 2; index++) {
-      this._ccs.show(CookieConsentExampleComponent,
-        {
-          title: 'hello',
-          isCloseable: true,
-          hasBackdrop: true,
-          position: 'top'
-        });
-    }
-
+    this._cookieContentRef = this._ccs.show(CookieConsentExampleComponent,
+      {
+        title: 'hello',
+        isCloseable: true,
+        hasBackdrop: true,
+        position: 'top'
+      });
   }
 
   hideConsent() {
-    this._ccs.hide();
+    this._cookieContentRef.hide();
   }
 
 }

@@ -9,35 +9,16 @@ import { CookieConsentConfig } from './cookie-consent-config';
   styleUrls: ['./cookie-consent-container.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CookieConsentContainerComponent implements OnDestroy{
+export class CookieConsentContainerComponent implements OnDestroy {
 
   private _config;
   @Input()
   set config(value: CookieConsentConfig) {
     this._config = value;
+    this._cdr.markForCheck();
   }
   get config() {
     return this._config;
-  }
-
-  private _title: string;
-  @Input()
-  set title(value: string) {
-    if (this._title !== value) {
-      this._title = value;
-    }
-  }
-  get title() {
-    return this._title;
-  }
-
-  private _closeable: boolean;
-  @Input()
-  set closeable(value) {
-    this._closeable = coerceBooleanProperty(value);
-  }
-  get closeable() {
-    return this._closeable;
   }
 
   @Output() statusChanged = new EventEmitter();
@@ -47,7 +28,7 @@ export class CookieConsentContainerComponent implements OnDestroy{
   private _portalOutlet: CdkPortalOutlet;
 
   // tslint:disable-next-line: variable-name
-  constructor(_cdr: ChangeDetectorRef) { }
+  constructor(private _cdr: ChangeDetectorRef) { }
 
   ngOnDestroy(): void {
     this._portalOutlet = null;
@@ -56,10 +37,12 @@ export class CookieConsentContainerComponent implements OnDestroy{
   attachComponentPortal(comportal: ComponentPortal<any>): ComponentRef<any> {
     return this._portalOutlet.attachComponentPortal(comportal);
   }
-
-  closeConsent() {
-    this._portalOutlet.detach();
-    this.statusChanged.emit();
+  
+  hide() {
+    if (this._portalOutlet) {
+      this._portalOutlet.detach();
+      this._cdr.markForCheck();
+      this.statusChanged.emit();
+    }
   }
-
 }
