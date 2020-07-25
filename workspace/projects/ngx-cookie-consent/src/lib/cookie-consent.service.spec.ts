@@ -59,6 +59,10 @@ describe('CookieConsentService', () => {
     expect(overlayContainerElement.querySelector('ngx-cookie-consent')).toBeNull();
   });
   it('should add backdrop', () => {
+    const config = new ConsentConfig();
+    config.hasBackdrop = true;
+    service.show(ConfigurableCookieConsent, config);
+    expect(document.getElementsByClassName('cdk-overlay-backdrop').length).toBe(1);
   });
   it('should set cookies given configuration', () => { });
 });

@@ -33,9 +33,12 @@ export class CookieConsentService {
   }
 
   show(component: ComponentType<any>, config?: CookieConsentConfig) {
+    if (this._overlayRef) {
+      return;
+    }
     this._overlayRef = this._createOverlay(config);
     const portal = new ComponentPortal(CookieConsentContainerComponent);
-    const ref: ComponentRef<CookieConsentContainerComponent> = this._overlayRef.attach(portal);    
+    const ref: ComponentRef<CookieConsentContainerComponent> = this._overlayRef.attach(portal);
     if (config) {
       this._setCookieConfig(ref, config);
     }
