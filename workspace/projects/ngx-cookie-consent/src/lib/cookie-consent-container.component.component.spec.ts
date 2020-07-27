@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 
 import { CookieConsentContainerComponent } from './cookie-consent-container.component';
-import { CookieConsentConfig } from './cookie-consent-config';
+import { CookieConsentConfig, CookieConfig } from './cookie-consent-config';
 
 class ConsentConfig implements CookieConsentConfig {
   title = '';
@@ -10,7 +10,18 @@ class ConsentConfig implements CookieConsentConfig {
   // position?: CookieConsentPosition;
   hasfocusTrap = false;
   disappearOnPageScroll = false;
-  // cookieConfig?: CookieConfig[];
+  cookieConfig: CookieConfig[] = [
+    {
+      // test=value;max-date=3600;expires=Fri, 31 Dec 9999 23:59:59 GMT;domain=example.com;secure=true;same-site=lax
+      name: 'test',
+      value: 'value',
+      maxDate: 3600,
+      expires: 'Fri, 31 Dec 9999 23:59:59 GMT',
+      domain: 'example.com',
+      secure: true,
+      samesite: 'strict'
+    }
+  ];
 }
 
 
@@ -73,5 +84,11 @@ describe('CookieConsentContainerComponent', () => {
       expect(fixture.componentInstance.hide).toHaveBeenCalledTimes(1);
     }));
 
+    fit('should set cookies', () => {
+      expect(document.cookie.length).toBe(0);
+      fixture.componentInstance.config = new ConsentConfig();
+      fixture.detectChanges();
+      expect(document.cookie).toEqual('test=value;max-date=3600;expires=Fri, 31 Dec 9999 23:59:59 GMT;domain=example.com;secure=true;same-site=lax');
+    });
   });
 });

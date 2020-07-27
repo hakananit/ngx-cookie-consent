@@ -1,11 +1,15 @@
 export type CookieConsentPosition = 'bottom' | 'top';
 
+type sameSite = 'lax' | 'strict';
+
 export interface CookieConfig {
-    cookieName?: string;
-    expireTime?: number;
+    name: string;
+    value: string;
+    maxDate?: number;
+    expires?: string;
     domain?: string;
     secure?: boolean;
-    samesite?: boolean;
+    samesite?: sameSite;
 }
 
 export interface CookieConsentConfig {

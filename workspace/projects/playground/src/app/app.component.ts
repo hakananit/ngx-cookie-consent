@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CookieConsentService } from 'ngx-cookie-consent';
+import { CookieConsentService, CookieConfig } from 'ngx-cookie-consent';
 import { CookieConsentExampleComponent } from './cookie-consent-example/cookie-consent-example.component';
 
 @Component({
@@ -13,18 +13,34 @@ export class AppComponent {
 
   constructor(private _ccs: CookieConsentService) { }
 
+  config: CookieConfig[] = [
+    {
+      // test=value;max-date=3600;expires=Fri, 31 Dec 9999 23:59:59 GMT;domain=example.com;secure=true;same-site=lax
+      name: 'test',
+      value: 'value',
+      maxDate: 3600,
+      expires: 'Fri, 31 Dec 9999 23:59:59 GMT',
+      domain: 'example.com',
+      secure: true,
+      samesite: 'strict'
+    }
+  ];
+
   showConsent() {
     this._cookieContentRef = this._ccs.show(CookieConsentExampleComponent,
       {
         title: 'hello',
         isCloseable: true,
         hasBackdrop: true,
-        position: 'top'
+        position: 'top',
+        cookieConfig: this.config
       });
   }
 
   hideConsent() {
-    this._cookieContentRef.hide();
+    if (this._cookieContentRef) {
+      this._cookieContentRef.hide();
+    }
   }
 
 }
