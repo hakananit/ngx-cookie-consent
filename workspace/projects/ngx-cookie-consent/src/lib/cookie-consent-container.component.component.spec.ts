@@ -19,7 +19,7 @@ class ConsentConfig implements CookieConsentConfig {
       expires: 'Fri, 31 Dec 9999 23:59:59 GMT',
       domain: 'example.com',
       secure: true,
-      samesite: 'strict'
+      samesite: 'lax'
     }
   ];
 }
@@ -88,7 +88,7 @@ describe('CookieConsentContainerComponent', () => {
       expect(document.cookie.length).toBe(0);
       fixture.componentInstance.config = new ConsentConfig();
       fixture.detectChanges();
-      expect(document.cookie).toEqual('test=value;max-date=3600;expires=Fri, 31 Dec 9999 23:59:59 GMT;domain=example.com;secure=true;same-site=lax');
+      expect(document.cookie).toEqual('test=value,max-date=3600,expires=Fri, 31 Dec 9999 23:59:59 GMT,domain=example.com,secure=true,same-site=lax,');
     });
   });
 });
