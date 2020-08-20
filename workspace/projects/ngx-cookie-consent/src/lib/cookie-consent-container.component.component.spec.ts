@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, fakeAsync, tick, flush } from '@angular/core/testing';
 
 import { CookieConsentContainerComponent } from './cookie-consent-container.component';
 import { CookieConsentConfig, CookieConfig } from './cookie-consent-config';
@@ -12,7 +12,6 @@ class ConsentConfig implements CookieConsentConfig {
   disappearOnPageScroll = false;
   cookieConfig: CookieConfig[] = [
     {
-      // test=value;max-date=3600;expires=Fri, 31 Dec 9999 23:59:59 GMT;domain=example.com;secure=true;same-site=lax
       name: 'test',
       value: 'value',
       maxDate: 3600,
@@ -85,8 +84,8 @@ describe('CookieConsentContainerComponent', () => {
     }));
 
     fit('should set cookies', () => {
-      expect(document.cookie.length).toBe(0);
-      fixture.componentInstance.config = new ConsentConfig();
+      document.cookie = '';
+      fixture.componentInstance._setCookie(new ConsentConfig().cookieConfig);
       fixture.detectChanges();
       expect(document.cookie).toEqual('test=value,max-date=3600,expires=Fri, 31 Dec 9999 23:59:59 GMT,domain=example.com,secure=true,same-site=lax,');
     });

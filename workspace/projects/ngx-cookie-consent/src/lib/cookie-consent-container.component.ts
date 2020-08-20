@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy, ViewChild, ComponentRef, Input, ChangeDetectorRef, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { CdkPortalOutlet, ComponentPortal } from '@angular/cdk/portal';
 import { CookieConsentConfig, CookieConfig } from './cookie-consent-config';
+import { CookieTypeService } from './cookie-type.service';
 
 @Component({
   selector: 'ngx-cookie-consent',
@@ -14,9 +15,6 @@ export class CookieConsentContainerComponent implements OnDestroy {
   @Input()
   set config(value: CookieConsentConfig) {
     this._config = value;
-    if (value?.cookieConfig) {
-      this._setCookie(value.cookieConfig);
-    }
     this._cdr.markForCheck();
   }
   get config(): CookieConsentConfig {
@@ -30,7 +28,7 @@ export class CookieConsentContainerComponent implements OnDestroy {
   private _portalOutlet: CdkPortalOutlet;
 
   // tslint:disable-next-line: variable-name
-  constructor(private _cdr: ChangeDetectorRef) { }
+  constructor(private _cdr: ChangeDetectorRef, private _cookieTypeService: CookieTypeService) { }
 
   ngOnDestroy(): void {
     this._portalOutlet = null;
@@ -52,26 +50,8 @@ export class CookieConsentContainerComponent implements OnDestroy {
     let str = '';
     document.cookie = '';
     for (const cookie of value) {
-      if (cookie.name) {
-        str += `${cookie.name}=${cookie.value},`;
-      }
-      if (cookie.maxDate) {
-        str += `max-date=${cookie.maxDate},`;
-      }
-      if (cookie.expires) {
-        str += `expires=${cookie.expires},`;
-      }
-      if (cookie.domain) {
-        str += `domain=${cookie.domain},`;
-      }
-      if (cookie.secure) {
-        str += `secure=${cookie.secure},`;
-      }
-      if (cookie.samesite) {
-        str += `same-site=${cookie.samesite},`;
-      }
-      document.cookie = str;
+      str += this._cookieTypeService.getType(cookie.type, cookie.value, cookie.name);
     }
-
+    document.cookie = str;
   }
 }
