@@ -22,11 +22,12 @@ export class AppComponent {
       expires: 'Fri, 31 Dec 9999 23:59:59 GMT',
       domain: 'example.com',
       secure: true,
-      samesite: 'strict'
+      samesite: 'strict',
+      type: 'name'
     }
   ];
 
-  showConsent() {
+  showConsent(): void {
     this._cookieContentRef = this._ccs.show(CookieConsentExampleComponent,
       {
         title: 'hello',
@@ -37,7 +38,7 @@ export class AppComponent {
       });
   }
 
-  hideConsent() {
+  hideConsent(): void {
     if (this._cookieContentRef) {
       this._cookieContentRef.hide();
     }
