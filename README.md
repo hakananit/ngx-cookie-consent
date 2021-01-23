@@ -1,2 +1,2 @@
 # ngx-cookie-consent
-Cookie consent Angular component.
+Cookie consent Angular component
