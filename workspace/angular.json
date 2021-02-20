@@ -163,6 +163,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "ngx-cookie-consent"
 }
